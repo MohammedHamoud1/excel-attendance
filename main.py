@@ -4,23 +4,23 @@ class Student:
     def __init__(self, name, student_id):
         self.id = student_id
         self.name = name
-        self.attendance = None  # None for unrecorded, 1 for present, 0 for absent
+        self.attendance = None  #1 for present, 0 for absent
 
 def record_attendance(students):
-    student_ids = {student.id for student in students}  # Create a set of student IDs for quick lookup
+    student_ids = {student.id for student in students}  
     attendance_recorded = False  # Track if any attendance was recorded
 
     while True:
         input_id = input("Enter a student ID to mark present (or 'done' to finish): ")
         
         if input_id.lower() == 'done':
-            if not attendance_recorded:  # If no attendance was recorded
+            if not attendance_recorded:  
                 for student in students:
                     student.attendance = 0  # Mark all as absent
                 print("All students marked as absent.")
             else:
                 for student in students:
-                    if student.attendance is None:  # If attendance not recorded
+                    if student.attendance is None:  
                         student.attendance = 0  # Mark as absent
             break
         
@@ -47,11 +47,11 @@ def save_to_excel(students, filename):
     # Write header
     worksheet.append(["ID", "Name", "Attendance"])
 
-    # Write student data
+    # Student data
     for student in students:
         worksheet.append([student.id, student.name, student.attendance])
 
-    workbook.save("try.xlsx")
+    workbook.save("your excel file here")
 
 def main():
     students = [
@@ -61,7 +61,7 @@ Student("student 2", "67"),
 
     record_attendance(students)
 
-    save_to_excel(students, "try.xlsx")
+    save_to_excel(students, "your excel file here")
 
     print("Attendance recorded successfully!")
 
