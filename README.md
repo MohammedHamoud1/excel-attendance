@@ -1,1 +1,2 @@
 # excel-attendance
+The idea behind the project is to input the student’s ID number who attended a training session, and then register their attendance by exporting this data to an Excel file along with their name and ID number. This eliminates the hassle of writing names on a side sheet and subsequently searching through an Excel file for attendees, which also reduces the likelihood of human error. 
